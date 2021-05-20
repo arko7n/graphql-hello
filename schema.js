@@ -11,9 +11,28 @@ const typeDefs = gql`
     artistName: String
   }
   
+  type User {
+    id: ID!
+    name: String!
+    email: String!
+    age: Int
+    posts: [Post!]!
+  }
+
+  type Post {
+    id: ID!
+    title: String!
+    body: String!
+    published: Boolean!
+    author: User!
+  }
+
   # queries
   type Query {
     iTunesSearch(term: String!): [ITunesSearchResult]
+    users(query: String): [User!]!
+    posts(query: String): [Post!]!  
+    post: Post!
   }
 `
 
