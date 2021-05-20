@@ -1,5 +1,3 @@
-// graphql.js
-
 const { ApolloServer, gql } = require('apollo-server-lambda');
 
 const typeDefs = require('./schema');

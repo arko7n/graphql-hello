@@ -21,19 +21,15 @@ class ITunesSearchAPI extends RESTDataSource {
   // our async call will pass data to this reducer, which will return the data 
   //mapped to our GraphQL schema
   iTunesSearchResultReducer(response, term) {
-    var formattedResults = []
     console.log("Result count: " + response.resultCount)
-    response.results.forEach(function (res, index) {
-      formattedResults.push({
-        id: "123",
-        kind: res.kind,
-        trackId: res.trackId,
-        trackName: res.trackName,
-        artistId: res.artist,
-        artistName: res.artistName
-      })
-    });
-    return formattedResults
+    return response.results.map(res => ({
+      id: "123",
+      kind: res.kind,
+      trackId: res.trackId,
+      trackName: res.trackName,
+      artistId: res.artistId,
+      artistName: res.artistName
+    }));
   }
 }
 
