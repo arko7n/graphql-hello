@@ -13,6 +13,7 @@ const typeDefs = gql`
   
   # queries
   type Query {
+    hello: String # Hello world query
     iTunesSearch(term: String!): [ITunesSearchResult]
   }
 `
